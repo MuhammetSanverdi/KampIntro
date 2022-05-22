@@ -10,10 +10,12 @@ namespace GenericsIntro
             isimler.Add("Engin");
             isimler.Add("Engin");
             isimler.Add("Engin");
-            isimler.Add("Engin");
+            isimler.Add("Fngin");
+            foreach (var isim in isimler.Items)
+            {
+                Console.WriteLine(isim);
+            }
 
-
-            Console.WriteLine("Hello World!");
         }
     }
 }
