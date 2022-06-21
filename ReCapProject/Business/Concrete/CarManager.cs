@@ -19,10 +19,10 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.ModelYear<= DateTime.Now.Year && car.CarId == null)
+            if (car.ModelYear <= DateTime.Now.Year && car.Description.Length>2 && car.DailyPrice>0)
             {
                     _carDal.Add(car);
-            }
+            }            
             else
             {
                 Console.WriteLine("Araç Kaydedilemedi");
@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public Car GetByCarId(int id)
         {
-            return _carDal.GetAllByCarId(id);
+            return _carDal.Get(c=>c.CarId ==id);
         }
 
         public void Update(Car car)
