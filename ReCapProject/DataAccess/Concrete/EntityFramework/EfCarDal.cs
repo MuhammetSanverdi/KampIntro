@@ -1,5 +1,7 @@
-﻿using DataAccess.Absract;
+﻿using Core.DataAccess;
+using DataAccess.Absract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,57 +12,19 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car,CarRentalContext>,ICarDal
     {
-
-        public void Add(Car entity)
+        public List<CarDetailDto> GetCarDetails()
         {
             using (CarRentalContext context = new CarRentalContext())
             {
-                var addedCar = context.Entry(entity);
-                addedCar.State = EntityState.Added;
-                context.SaveChanges();
-                
-            }
-        }
-
-        public void Update(Car entity)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                var updatedCar = context.Entry(entity);
-                updatedCar.State = EntityState.Modified;
-                context.SaveChanges();
-
-            }
-        }
-
-        public void Delete(Car entity)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                var deletedCar = context.Entry(entity);
-                deletedCar.State = EntityState.Deleted;
-                context.SaveChanges();
-
-            }
-        }
-
-        public Car Get(Expression<Func<Car, bool>> filter)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                return context.Set<Car>().SingleOrDefault (filter);
-            }
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                return filter == null 
-                    ? context.Set<Car>().ToList() 
-                    : context.Set<Car>().Where(filter).ToList();
+                var result = from ca in context.Cars
+                             join co in context.Colors
+                             on ca.ColorId equals co.ColorId
+                             join b in context.Brands
+                             on ca.BrandId equals b.BrandId
+                             select new CarDetailDto {BrandName = b.BrandName,ColorName=co.ColorName,CarName=ca.Description, DailyPrice = ca.DailyPrice };
+                return result.ToList();
             }
         }
 
@@ -68,7 +32,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (CarRentalContext context = new CarRentalContext())
             {
-                return context.Set<Car>().Where(c=>c.BrandId == id).ToList();
+                return context.Set<Car>().Where(c => c.BrandId == id).ToList();
             }
         }
 
@@ -79,5 +43,7 @@ namespace DataAccess.Concrete.EntityFramework
                 return context.Set<Car>().Where(c => c.ColorId == id).ToList();
             }
         }
+
+
     }
 }

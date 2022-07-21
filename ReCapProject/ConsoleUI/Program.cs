@@ -1,9 +1,9 @@
 ﻿using Business.Concrete;
-using DataAccess.Absract;
-using DataAccess.Concrete;
-using DataAccess.Concrete.InMemory;
+using Core.Utilities.Results;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleUI
 {
@@ -11,18 +11,112 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car { BrandId = 6, ColorId = 3,Description = "fsdgvsdfgsdf",DailyPrice = 500, ModelYear = 2011 };
-            Car car2 = new Car { CarId = 1,BrandId = 6, ColorId = 3, Description = "fsdgvsdfgsdf", DailyPrice = 500, ModelYear = 2011 };
-            ICarDal carDal = new InMemoryCarDal();
-            CarManager carManager = new CarManager(carDal);
-            carManager.Update(car2);
-            carManager.Add(car1);
+            //Added();            
 
-            foreach (var car in carManager.GetAll())
+            //CarsListed();
+
+            //AddCar();
+
+            //UserAdd();
+            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //customerManager.Add(new Customer { UserId=1,CompanyName="Muhammet"});
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(new Rental
+            {
+                CarId = 3,
+                CustomerId = 1,
+                RentDate = new DateTime(2022, 03, 22, 11, 10, 47),
+                ReturnDate = DateTime.Now
+            });
+            Console.WriteLine(result.Message); 
+        }
+
+        private static void UserAdd()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var addedUser = userManager.Add(new User
+            {
+                FirstName = "Muhammet",
+                LastName = "Şanverdi",
+                Email = "muhammets@xxxxx.com",
+                Password = "41584864",
+            });
+            Console.WriteLine(addedUser.Message);
+        }
+
+        private static IResult AddCar()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            var car = new Car
+            {
+                BrandId = 5,
+                ColorId = 4,
+                DailyPrice = 2500,
+                Description = "sdfsdfsd",
+                ModelYear = 2025
+            };
+            var result = carManager.Add(car);
+            return result;
+        }
+
+        private static void CarsListed()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.GetAll();
+            foreach (var car in result.Data)
             {
                 Console.WriteLine(car.Description);
             }
+        }
 
+        private static void Added()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            CarAddDemo();
+            List<Brand> brands = new List<Brand>
+            {
+                new Brand{BrandName = "Volvo"},
+                new Brand{BrandName = "Honda"},
+                new Brand{BrandName = "Volkswagen"},
+                new Brand{BrandName = "Renault"}
+            };
+            List<Color> colors = new List<Color>
+            {
+                new Color{ColorName="Siyah"},
+                new Color{ColorName="Beyaz"},
+                new Color{ColorName="Kırmızı"},
+                new Color{ColorName="Gümüş Gri"},
+                new Color{ColorName="Mavi"}
+            };
+            foreach (var brand in brands)
+            {
+                brandManager.Add(brand);
+            }
+            foreach (var color in colors)
+            {
+                colorManager.Add(color);
+            }
+        }
+
+        private static void CarAddDemo()
+        {
+            List<Car> cars = new List<Car>
+           {
+               new Car{BrandId=2, ColorId=4, DailyPrice=300, ModelYear=2015, Description="Accord Benzinli Otomatik Vites"},
+               new Car{BrandId=1, ColorId=2, DailyPrice=650, ModelYear=2020, Description="S90 Dizel Otomatik Vites"},
+               new Car{BrandId=3, ColorId=4, DailyPrice=425, ModelYear=2022, Description="Golf Dizel Otomatik Vites"},
+               new Car{BrandId=4, ColorId=5, DailyPrice=500, ModelYear=2018, Description="Megane Benzinli Otomatik Vites"},
+           };
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            foreach (var car in cars)
+            {
+                carManager.Add(car);
+            }
         }
     }
 }

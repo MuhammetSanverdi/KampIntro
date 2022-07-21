@@ -1,6 +1,12 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac;
+using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Results;
 using DataAccess.Absract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,37 +23,43 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add(Car car)
+        [ValidationAspect(typeof(CarValidator))]
+        public IResult Add(Car car)
         {
-            if (car.ModelYear <= DateTime.Now.Year && car.Description.Length>2 && car.DailyPrice>0)
-            {
-                    _carDal.Add(car);
-            }            
-            else
-            {
-                Console.WriteLine("Araç Kaydedilemedi");
-            }
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
             
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
+            return new SuccessResult(Messages.CarAdded);
         }
 
-        public List<Car> GetAll()
-        {
-            return _carDal.GetAll();
+        public IDataResult<List<Car>> GetAll()
+        {           
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
 
-        public Car GetByCarId(int id)
+        public IDataResult<Car> GetByCarId(int id)
         {
-            return _carDal.Get(c=>c.CarId ==id);
+            return new SuccessDataResult<Car>(_carDal.Get(c=>c.CarId ==id));
         }
 
-        public void Update(Car car)
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            _carDal.Update(car);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarDetailsListed);
+        }
+
+        public IResult Update(Car car)
+        {
+            if(car.ModelYear <= DateTime.Now.Year && car.Description.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                return new SuccessResult(Messages.CarAdded);
+            }
+            return new ErrorResult(Messages.CarInvalid);
         }
     }
 }
