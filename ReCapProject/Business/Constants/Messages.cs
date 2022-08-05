@@ -45,5 +45,6 @@ namespace Business.Constants
         public static string RentalDeleted = "Araç kiralama bilgileri silindi";
         public static string RentalsListed = "Tüm araç kiralama bilgileri Listelendi";
         public static string RentalInvalid = "Araç kiralama bilgileri yanlış";
+        public static string CarImageNotFound = "Bu aracın herhangi bir fotoğrafı olmadığı için varsayılan fotoğraf gösterildi";
     }
 }

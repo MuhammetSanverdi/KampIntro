@@ -12,15 +12,15 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //Added();            
-
             //CarsListed();
-
             //AddCar();
-
             //UserAdd();
-            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            //customerManager.Add(new Customer { UserId=1,CompanyName="Muhammet"});
+            //AddTestDemo();
 
+        }
+
+        private static void AddTestDemo()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var result = rentalManager.Add(new Rental
             {
@@ -29,7 +29,7 @@ namespace ConsoleUI
                 RentDate = new DateTime(2022, 03, 22, 11, 10, 47),
                 ReturnDate = DateTime.Now
             });
-            Console.WriteLine(result.Message); 
+            Console.WriteLine(result.Message);
         }
 
         private static void UserAdd()
