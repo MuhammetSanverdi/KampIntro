@@ -1,6 +1,8 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,12 +13,11 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //Added();            
+            Added();
             //CarsListed();
             //AddCar();
             //UserAdd();
             //AddTestDemo();
-
         }
 
         private static void AddTestDemo()
@@ -31,7 +32,7 @@ namespace ConsoleUI
             });
             Console.WriteLine(result.Message);
         }
-
+        
         private static void UserAdd()
         {
             UserManager userManager = new UserManager(new EfUserDal());
@@ -39,8 +40,7 @@ namespace ConsoleUI
             {
                 FirstName = "Muhammet",
                 LastName = "Şanverdi",
-                Email = "muhammets@xxxxx.com",
-                Password = "41584864",
+                Email = "muhammets@xxxxx.com",                
             });
             Console.WriteLine(addedUser.Message);
         }
@@ -79,18 +79,18 @@ namespace ConsoleUI
             CarAddDemo();
             List<Brand> brands = new List<Brand>
             {
-                new Brand{BrandName = "Volvo"},
-                new Brand{BrandName = "Honda"},
-                new Brand{BrandName = "Volkswagen"},
-                new Brand{BrandName = "Renault"}
+                new Brand{Name = "Volvo"},
+                new Brand{Name = "Honda"},
+                new Brand{Name = "Volkswagen"},
+                new Brand{Name = "Renault"}
             };
             List<Color> colors = new List<Color>
             {
-                new Color{ColorName="Siyah"},
-                new Color{ColorName="Beyaz"},
-                new Color{ColorName="Kırmızı"},
-                new Color{ColorName="Gümüş Gri"},
-                new Color{ColorName="Mavi"}
+                new Color{Name="Siyah"},
+                new Color{Name="Beyaz"},
+                new Color{Name="Kırmızı"},
+                new Color{Name="Gümüş Gri"},
+                new Color{Name="Mavi"}
             };
             foreach (var brand in brands)
             {

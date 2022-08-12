@@ -7,7 +7,9 @@ using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Absract;
-using Entities.Concrete;
+using Core.Entities.Concrete;
+using Core.Aspects.Autofac;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -20,14 +22,11 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            if (user.FirstName.Length>2 && user.LastName.Length>2 && user.Email.Contains("@") && user.Email.Contains("."))
-            {
                 _userDal.Add(user);
-                return new SuccessResult(Messages.UserAdded); 
-            }
-            return new ErrorResult(Messages.UserInvalid);
+                return new SuccessResult(Messages.UserAdded);            
         }
 
         public IResult Delete(User user)
@@ -41,19 +40,37 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.UsersListed);
         }
 
-        public IDataResult<User> GetByUserId(int id)
+        public IDataResult<User> GetByEmail(string email)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u=>u.UserId == id));
+            var result = _userDal.Get(u=>u.Email==email);
+            if (result==null)
+            {
+                return new ErrorDataResult<User>(result);
+            }
+            return new SuccessDataResult<User>(result);
         }
 
+        public IDataResult<User> GetByUserId(int id)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.Id == id));
+        }
+
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            var result = _userDal.GetClaims(user);
+            if (result==null)
+            {
+                return new ErrorDataResult<List<OperationClaim>>();
+            }
+            return new SuccessDataResult<List<OperationClaim>>(result);
+        }
+
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Update(User user)
         {
-            if (user.FirstName.Length > 2 && user.LastName.Length > 2 && user.Email.Contains("@|."))
-            {
                 _userDal.Add(user);
                 return new SuccessResult(Messages.UserUpdated);
-            }
-            return new ErrorResult(Messages.UserInvalid);
+           
         }
     }
 }
