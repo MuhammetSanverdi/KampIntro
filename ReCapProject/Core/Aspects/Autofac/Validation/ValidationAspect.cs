@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Aspects.Autofac
+namespace Core.Aspects.Autofac.Validation
 {
-    public class ValidationAspect:MethodInterception
+    public class ValidationAspect : MethodInterception
     {
         private Type _validatorType;
 

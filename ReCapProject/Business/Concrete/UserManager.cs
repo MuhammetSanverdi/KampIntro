@@ -8,8 +8,8 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Absract;
 using Core.Entities.Concrete;
-using Core.Aspects.Autofac;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
 {
