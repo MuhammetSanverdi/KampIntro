@@ -10,6 +10,9 @@ using DataAccess.Absract;
 using Core.Entities.Concrete;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -23,10 +26,12 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
+        [CacheRemoveAspect("UserService.Get")]
         public IResult Add(User user)
         {
-                _userDal.Add(user);
-                return new SuccessResult(Messages.UserAdded);            
+            _userDal.Add(user);
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Delete(User user)
@@ -35,6 +40,8 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserDeleted);
         }
 
+        [CacheAspect]
+        [PerformanceAspect(2)]
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.UsersListed);
