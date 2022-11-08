@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
-using DataAccess.Absract;
 using Core.Entities.Concrete;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Performance;
+using DataAccess.Absract;
 
 namespace Business.Concrete
 {
@@ -25,7 +25,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        [ValidationAspect(typeof(UserValidator))]
+        //[ValidationAspect(typeof(UserValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("UserService.Get")]
         public IResult Add(User user)

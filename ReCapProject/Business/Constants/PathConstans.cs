@@ -9,6 +9,7 @@ namespace Business.Constants
 {
     public class PathConstans
     {
-        public static string LocalImagePath = Directory.GetParent(Directory.GetCurrentDirectory()).FullName + @"\Pictures\";
+        public readonly static string ImagesPath = @"wwwroot\Uploads\Images\";
+        public readonly static string DefaultImageName = "default.jpg";
     }
 }

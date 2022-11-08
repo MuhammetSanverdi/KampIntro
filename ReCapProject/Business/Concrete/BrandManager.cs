@@ -38,7 +38,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Brand>> GetAll()
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.BrandsListed);
+            var result = _brandDal.GetAll().OrderBy(key => key.Name).ToList();
+            return new SuccessDataResult<List<Brand>>(result,Messages.BrandsListed);
 
         }
 

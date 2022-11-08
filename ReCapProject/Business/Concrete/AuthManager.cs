@@ -55,12 +55,12 @@ namespace Business.Concrete
 
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
+            byte[] passwordHash, passwordSalt;
             var userExits = UserExists(userForRegisterDto.Email);
             if (userExits.Success)
             {
                 return new ErrorDataResult<User>(Messages.UserExits);
-            }
-            byte[] passwordHash, passwordSalt;
+            }            
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password,out passwordSalt,out passwordHash);
             User user = new User
             {

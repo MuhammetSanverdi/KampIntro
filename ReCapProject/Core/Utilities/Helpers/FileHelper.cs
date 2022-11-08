@@ -26,7 +26,7 @@ namespace Core.Utilities.Helpers
                 {
                     file.CopyTo(fileStream);
                     fileStream.Flush();
-                    return root + filePath;
+                    return filePath;
 
                 }
 
@@ -34,20 +34,20 @@ namespace Core.Utilities.Helpers
             return null;
         }
 
-        public void Delete(string filepath)
+        public void Delete(string filepath, string root)
         {
-            if (File.Exists(filepath))
+            if (File.Exists(root+filepath))
             {
-                File.Delete(filepath);
+                File.Delete(root + filepath);
 
             }
         }
 
         public string Update(IFormFile file, string filePath, string root)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(root+filePath))
             {
-                File.Delete(filePath);                
+                File.Delete(root + filePath);                
             }
             return Upload(file, root);
         }

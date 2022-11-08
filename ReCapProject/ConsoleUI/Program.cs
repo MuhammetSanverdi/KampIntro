@@ -6,6 +6,8 @@ using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Core.Utilities.Helpers;
 
 namespace ConsoleUI
 {
@@ -13,11 +15,42 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Added();
+            //Added();
             //CarsListed();
             //AddCar();
             //UserAdd();
             //AddTestDemo();
+
+
+            //Ornek ornek = new Ornek();
+            //new Ornek();
+            var ids = new List<Ornek> { new Ornek { Id = 2 }, new Ornek { Id= 3 }, new Ornek{Id = 4}};
+            var ornek = new Ornek();
+            ornek.Id = 1;
+
+            var intCollection = typeof(Ornek).GetProperty("Id",System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.Instance);
+            var sayilar = intCollection.GetValue(new Ornek()) as dynamic;
+            foreach (var sayi in sayilar)
+            {
+                Console.WriteLine(sayi);
+            }
+        }
+
+        class Ornek
+        {
+            public int Id { get; set; }
+            string[] Isimler = new string[10];
+            public string this[int i]
+            {
+                get
+                {
+                    return Isimler[i];
+                }
+                set
+                {
+                    Isimler[i] = value;
+                }
+            }
         }
 
         private static void AddTestDemo()
@@ -32,7 +65,7 @@ namespace ConsoleUI
             });
             Console.WriteLine(result.Message);
         }
-        
+
         private static void UserAdd()
         {
             UserManager userManager = new UserManager(new EfUserDal());
@@ -40,14 +73,14 @@ namespace ConsoleUI
             {
                 FirstName = "Muhammet",
                 LastName = "Şanverdi",
-                Email = "muhammets@xxxxx.com",                
+                Email = "muhammets@xxxxx.com",
             });
             Console.WriteLine(addedUser.Message);
         }
 
         private static IResult AddCar()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(),new CarImageManager(new EfCarImageDal(),new FileHelper()));
 
             var car = new Car
             {
@@ -63,7 +96,7 @@ namespace ConsoleUI
 
         private static void CarsListed()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new CarImageManager(new EfCarImageDal(), new FileHelper()));
             var result = carManager.GetAll();
             foreach (var car in result.Data)
             {
@@ -73,7 +106,7 @@ namespace ConsoleUI
 
         private static void Added()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new CarImageManager(new EfCarImageDal(), new FileHelper()));
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             CarAddDemo();
@@ -111,7 +144,7 @@ namespace ConsoleUI
                new Car{BrandId=3, ColorId=4, DailyPrice=425, ModelYear=2022, Description="Golf Dizel Otomatik Vites"},
                new Car{BrandId=4, ColorId=5, DailyPrice=500, ModelYear=2018, Description="Megane Benzinli Otomatik Vites"},
            };
-            CarManager carManager = new CarManager(new EfCarDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new CarImageManager(new EfCarImageDal(), new FileHelper()));
 
             foreach (var car in cars)
             {

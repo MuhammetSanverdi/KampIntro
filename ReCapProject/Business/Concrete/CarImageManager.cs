@@ -35,7 +35,7 @@ namespace Business.Concrete
             }
             carImage.Date = DateTime.Now;
 
-            carImage.ImagePath = _fileHelper.Upload(file, PathConstans.LocalImagePath);
+            carImage.ImagePath = _fileHelper.Upload(file, PathConstans.ImagesPath);
             _carImageDal.Add(carImage);
             return new SuccessResult();
         }
@@ -43,7 +43,7 @@ namespace Business.Concrete
         public IResult Delete( CarImage carImage)
         {
             _carImageDal.Delete(carImage);
-            _fileHelper.Delete(carImage.ImagePath);
+            _fileHelper.Delete(carImage.ImagePath, PathConstans.ImagesPath);
             return new SuccessResult();
         }
         public IResult Update(IFormFile file, CarImage carImage)
@@ -55,7 +55,7 @@ namespace Business.Concrete
             }
             var temporaryCarImage = _carImageDal.Get(c => c.Id == carImage.Id);
             carImage.Date = DateTime.Now;
-            carImage.ImagePath = _fileHelper.Update(file, temporaryCarImage.ImagePath, PathConstans.LocalImagePath);
+            carImage.ImagePath = _fileHelper.Update(file, temporaryCarImage.ImagePath, PathConstans.ImagesPath);
 
             _carImageDal.Update(carImage);
             return new SuccessResult();
@@ -68,14 +68,21 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetCarImagesByCarId(int id)
         {            
-            var rules = BusinessRules.Run(CheckIfCarImage(id));
+            var rules = CheckIfCarImage(id);
             if (!rules.Success)
             {
-                var carImage = new List<CarImage> { new CarImage {CarId=id , Date=DateTime.Now , ImagePath=GetDefaultCarImage() } };
+                var carImage = new List<CarImage> { new CarImage {CarId=id , Date=DateTime.Now , ImagePath=PathConstans.DefaultImageName } };
                 return new ErrorDataResult<List<CarImage>>(carImage,Messages.CarImageNotFound);
             }
             
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == id));
+        }
+
+        public IDataResult<CarImage> GetDefaultCarImageByCarId(int carId)
+        {
+            var carImages = GetCarImagesByCarId(carId);
+            var carImage = carImages.Data.FirstOrDefault();
+            return new SuccessDataResult<CarImage>(carImage);
         }
 
         public IDataResult<CarImage> GetByCarImageId(int id)
@@ -105,10 +112,7 @@ namespace Business.Concrete
             return new ErrorResult();
         }
         
-        private string GetDefaultCarImage()
-        {
-            return PathConstans.LocalImagePath +"default.png" ;
-        }
+        
 
     }
 

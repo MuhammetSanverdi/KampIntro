@@ -10,6 +10,5 @@ namespace DataAccess.Absract
 {
     public interface IBrandDal:IEntityRepository<Brand>
     {
-
     }
 }

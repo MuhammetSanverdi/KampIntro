@@ -1,4 +1,6 @@
-﻿using Core.DataAccess;
+﻿using Castle.Core.Resource;
+using Core.DataAccess;
+using Core.Entities.Concrete;
 using DataAccess.Absract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -16,21 +18,34 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (CarRentalContext context = new CarRentalContext())
             {
-                var result = from r in context.Rentals
-                             join ca in context.Cars
-                             on r.CarId equals ca.Id
-                             join b in context.Brands
-                             on ca.BrandId equals b.Id
-                             join co in context.Colors
-                             on ca.ColorId equals co.Id
-                             join cu in context.Customers
-                             on r.CustomerId equals cu.UserId
-                             join u in context.Users
-                             on r.CustomerId equals u.Id
-                             select new RentalDetailDto {
-                                 RentalId = r.Id,
-                                 BrandName =b.Name,ColorName=co.Name,CompanyName=cu.CompanyName,DailyPrice=ca.DailyPrice,
-                                 Description=ca.Description,FirstName=u.FirstName,lastName=u.LastName,RentDate =r.RentDate,ReturnDate=r.RentDate};
+                var result = from rentals in context.Rentals
+                             join cars in context.Cars
+                             on rentals.CarId equals cars.Id
+                             join brands in context.Brands
+                             on cars.BrandId equals brands.Id
+                             join colors in context.Colors
+                             on cars.ColorId equals colors.Id
+                             join customers in context.Customers
+                             on rentals.CustomerId equals customers.UserId
+                             join users in context.Users
+                             on rentals.CustomerId equals users.Id
+                             select new RentalDetailDto
+                             {
+                                 CarId = cars.Id,
+                                 BrandId = brands.Id,
+                                 ColorId = colors.Id,
+                                 CustomerId = customers.Id,
+                                 UserId = users.Id,
+                                 RentalId = rentals.Id,
+                                 BrandName = brands.Name,
+                                 ColorName = colors.Name,
+                                 CompanyName = customers.CompanyName,
+                                 DailyPrice = cars.DailyPrice,
+                                 Description = cars.Description,
+                                 CustomerName = users.FirstName + " " + users.LastName,
+                                 RentDate = rentals.RentDate,
+                                 ReturnDate = rentals.RentDate
+                             };
 
                 return result.ToList();
 
@@ -38,5 +53,44 @@ namespace DataAccess.Concrete.EntityFramework
 
             }
         }
+
+        public List<RentalDetailDto> GetRentalDetailsByCarId(int carId)
+        {
+            using (CarRentalContext context = new CarRentalContext())
+            {
+                IQueryable<RentalDetailDto> result = from rentals in context.Rentals
+                                                     join cars in context.Cars
+                                                     on rentals.CarId equals cars.Id
+                                                     join brands in context.Brands
+                                                     on cars.BrandId equals brands.Id
+                                                     join colors in context.Colors
+                                                     on cars.ColorId equals colors.Id
+                                                     join customers in context.Customers
+                                                     on rentals.CustomerId equals customers.Id
+                                                     join users in context.Users
+                                                     on rentals.CustomerId equals users.Id
+                                                     where rentals.CarId == carId
+                                                     select new RentalDetailDto
+                                                     {
+                                                         CarId = cars.Id,
+                                                         BrandId = brands.Id,
+                                                         ColorId = colors.Id,
+                                                         CustomerId = customers.Id,
+                                                         UserId = users.Id,
+                                                         RentalId = rentals.Id,
+                                                         BrandName = brands.Name,
+                                                         ColorName = colors.Name,
+                                                         CompanyName = customers.CompanyName,
+                                                         DailyPrice = cars.DailyPrice,
+                                                         Description = cars.Description,
+                                                         CustomerName = users.FirstName + " " + users.LastName,
+                                                         RentDate = rentals.RentDate,
+                                                         ReturnDate = rentals.RentDate
+                                                     };
+                return result.ToList();
+            };
+
+        }
     }
 }
+
