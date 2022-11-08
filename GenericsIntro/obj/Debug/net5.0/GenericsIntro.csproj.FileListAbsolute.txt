@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.exe
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.deps.json
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.runtimeconfig.json
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.dll
+C:\C#\2022\KampIntro\GenericsIntro\bin\Debug\net5.0\GenericsIntro.pdb
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.AssemblyInfo.cs
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.dll
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\refint\GenericsIntro.dll
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.pdb
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\GenericsIntro.genruntimeconfig.cache
+C:\C#\2022\KampIntro\GenericsIntro\obj\Debug\net5.0\ref\GenericsIntro.dll

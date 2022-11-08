@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.exe
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.deps.json
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.runtimeconfig.json
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.dll
+C:\C#\2022\KampIntro\Collections\bin\Debug\net5.0\Collections.pdb
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.AssemblyInfo.cs
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.dll
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\refint\Collections.dll
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.pdb
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\Collections.genruntimeconfig.cache
+C:\C#\2022\KampIntro\Collections\obj\Debug\net5.0\ref\Collections.dll

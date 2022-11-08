@@ -38,10 +38,10 @@ namespace Business.Concrete
         {
             //İş kodları
             //Yetkisi var mı?
-            if (DateTime.Now.Hour == 21)
-            {
-                return new ErrorDataResult<List<Product>>(Messages.ManintenanceTime);
-            }
+            //if (DateTime.Now.Hour == 21)
+            //{
+            //    return new ErrorDataResult<List<Product>>(Messages.ManintenanceTime);
+            //}
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
         }
 
@@ -52,7 +52,8 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(p=>p.ProductId == productId));
+            var result = _productDal.Get(p => p.ProductId == productId);
+            return new SuccessDataResult<Product>(result);
         }
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)

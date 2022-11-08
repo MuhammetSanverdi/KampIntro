@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.exe
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.deps.json
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.runtimeconfig.json
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.dll
+C:\C#\2022\KampIntro\Reflaction\bin\Debug\net5.0\Reflaction.pdb
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.AssemblyInfo.cs
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.dll
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\refint\Reflaction.dll
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.pdb
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\Reflaction.genruntimeconfig.cache
+C:\C#\2022\KampIntro\Reflaction\obj\Debug\net5.0\ref\Reflaction.dll

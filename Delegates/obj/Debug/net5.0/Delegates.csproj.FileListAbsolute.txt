@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.exe
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.deps.json
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.runtimeconfig.json
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.dll
+C:\C#\2022\KampIntro\Delegates\bin\Debug\net5.0\Delegates.pdb
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.AssemblyInfo.cs
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.dll
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\refint\Delegates.dll
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.pdb
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\Delegates.genruntimeconfig.cache
+C:\C#\2022\KampIntro\Delegates\obj\Debug\net5.0\ref\Delegates.dll

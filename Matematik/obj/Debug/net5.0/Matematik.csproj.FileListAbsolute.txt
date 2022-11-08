@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.exe
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.deps.json
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.runtimeconfig.json
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.dll
+C:\C#\2022\KampIntro\Matematik\bin\Debug\net5.0\Matematik.pdb
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.AssemblyInfo.cs
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.dll
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\refint\Matematik.dll
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.pdb
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\Matematik.genruntimeconfig.cache
+C:\C#\2022\KampIntro\Matematik\obj\Debug\net5.0\ref\Matematik.dll

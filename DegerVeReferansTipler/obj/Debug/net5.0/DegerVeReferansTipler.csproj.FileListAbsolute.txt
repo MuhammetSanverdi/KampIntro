@@ -1,0 +1,16 @@
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.exe
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.deps.json
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.runtimeconfig.json
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.runtimeconfig.dev.json
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.dll
+C:\C#\2022\KampIntro\DegerVeReferansTipler\bin\Debug\net5.0\DegerVeReferansTipler.pdb
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.csproj.AssemblyReference.cache
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.AssemblyInfoInputs.cache
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.AssemblyInfo.cs
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.csproj.CoreCompileInputs.cache
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.dll
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\refint\DegerVeReferansTipler.dll
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.pdb
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\DegerVeReferansTipler.genruntimeconfig.cache
+C:\C#\2022\KampIntro\DegerVeReferansTipler\obj\Debug\net5.0\ref\DegerVeReferansTipler.dll

@@ -1,0 +1,16 @@
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.exe
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.deps.json
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.runtimeconfig.json
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.runtimeconfig.dev.json
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.dll
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\bin\Debug\net5.0\InterfacesExample.pdb
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.csproj.AssemblyReference.cache
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.AssemblyInfoInputs.cache
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.AssemblyInfo.cs
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.csproj.CoreCompileInputs.cache
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.dll
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\refint\InterfacesExample.dll
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.pdb
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\InterfacesExample.genruntimeconfig.cache
+C:\Users\muham\source\repos\Interfaces\InterfacesExample\obj\Debug\net5.0\ref\InterfacesExample.dll
